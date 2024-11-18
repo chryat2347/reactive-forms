@@ -1,1 +1,15 @@
-<p>habit-form works!</p>
+<div id="habit-form-container">
+  <form [formGroup]="habitForm" (ngSubmit)="onSubmit(habitForm.value)">
+    <input type="text" placeholder="Item" formControlName="title" />
+    <input type="text" placeholder="Quantity" formControlName="quantity" />
+    <input type="text" placeholder="More Info" formControlName="moreInfo" />
+    <button type="submit">Add</button>
+  </form>
+</div>
+<h2> {{ header }} </h2>
+
+<ul>
+  @for (habit of habits; track habit; let index = $index) {
+    <li><span>{{ habit.quantity }}</span> {{ habit.title }}</li>
+  }
+</ul>
